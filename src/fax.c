@@ -447,7 +447,7 @@ SPAN_DECLARE(logging_state_t *) fax_get_logging_state(fax_state_t *s)
 
 SPAN_DECLARE(int) fax_restart(fax_state_t *s, bool calling_party)
 {
-    v8_parms_t v8_parms;
+    v8_parms_t v8_parms = {};
 
     fax_modems_restart(&s->modems);
     v8_parms.modem_connect_tone = MODEM_CONNECT_TONES_ANSAM_PR;
@@ -508,7 +508,7 @@ SPAN_DECLARE(int) fax_restart(fax_state_t *s, bool calling_party)
 
 SPAN_DECLARE(fax_state_t *) fax_init(fax_state_t *s, bool calling_party)
 {
-    v8_parms_t v8_parms;
+    v8_parms_t v8_parms = {};
 
     if (s == NULL)
     {

@@ -381,7 +381,7 @@ SPAN_DECLARE(void) data_modems_set_modem_type(data_modems_state_t *s, int which,
 {
     const fsk_spec_t *fsk_rx_spec;
     const fsk_spec_t *fsk_tx_spec;
-    v8_parms_t v8_parms;
+    v8_parms_t v8_parms = {};
     logging_state_t *logging;
     int level;
 
