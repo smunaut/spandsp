@@ -448,7 +448,7 @@ SPAN_DECLARE(void) data_modems_set_modem_type(data_modems_state_t *s, int which,
                                    | V8_MOD_V34
 #endif
                                    | 0;
-        v8_parms.jm_cm.protocols = V8_PROTOCOL_LAPM_V42;
+        v8_parms.jm_cm.protocols = 0; // V8_PROTOCOL_LAPM_V42;
 #endif
         v8_parms.jm_cm.pcm_modem_availability = 0;
         v8_parms.jm_cm.pstn_access = 0;
