@@ -167,8 +167,8 @@ static int async_get_byte(void *user_data)
     uint8_t msg[1];
 
     s = (data_modems_state_t *) user_data;
-    s->get_msg(s->user_data, msg, 1);
-    return msg[0];
+    int l = s->get_msg(s->user_data, msg, 1);
+    return l ? msg[0] : SIG_STATUS_LINK_IDLE;
 }
 /*- End of function --------------------------------------------------------*/
 
@@ -181,8 +181,9 @@ static void async_put_byte(void *user_data, int byte)
     msg[0] = byte;
     if (byte < 0)
         s->put_msg(s->user_data,  msg, byte);
+    else
+        s->put_msg(s->user_data,  msg, 1);
     /*endif*/
-    s->put_msg(s->user_data,  msg, 1);
 }
 /*- End of function --------------------------------------------------------*/
 
