@@ -329,6 +329,8 @@ static void v8_handler(void *user_data, v8_parms_t *result)
     case V8_STATUS_NON_V8_CALL:
         span_log(&s->logging, SPAN_LOG_FLOW, "  Non-V.8 call\n");
         s->queued_modem = DATA_MODEM_V22BIS;
+        s->queued_baud_rate = 600;
+        s->queued_bit_rate = 2400;
         break;
     default:
         span_log(&s->logging, SPAN_LOG_FLOW, "  Huh? %d\n", result->status);
